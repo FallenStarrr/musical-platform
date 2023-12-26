@@ -2,7 +2,7 @@ import { ITrack } from '@/types/track';
 import { Card, Grid, IconButton } from '@mui/material';
 import React from 'react'
 import styles from '../styles/TrackItem.module.scss'
-import { Pause, PlayArrow } from '@mui/icons-material';
+import { Delete, Pause, PlayArrow } from '@mui/icons-material';
 
 
 interface TrackItemProps {
@@ -28,6 +28,10 @@ const TrackItem: React.FC<TrackItemProps> = ({track, active = false}) => {
                 <div>{track.name}</div>
                 <div style={{fontSize: 12, color: 'gray'}}>{track.artist}</div>
             </Grid>
+            {active && <div>02:42/03:22</div>}
+            <IconButton style={{marginLeft: 'auto'}}>
+                <Delete/>
+            </IconButton>
        </Card>
   )
 }
