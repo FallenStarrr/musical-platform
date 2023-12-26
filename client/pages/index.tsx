@@ -1,15 +1,18 @@
 import Navbar from '@/components/Navbar'
+import MainLayout from '@/layouts/MainLayout'
 import { Button } from '@mui/material'
 import React from 'react'
 
 const index = () => {
   return (
     <>
-        <Navbar/>
-        <div className='center'>
-            <h1>Добро пожаловать!</h1>
-            <h3>Здесь собраны лучшие треки!</h3>
-        </div>
+       <MainLayout>
+            <div className='center'>
+                    <h1>Добро пожаловать!</h1>
+                    <h3>Здесь собраны лучшие треки!</h3>
+            </div>
+       </MainLayout>
+        
 
         <style jsx>
             {`
