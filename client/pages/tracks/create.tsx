@@ -2,7 +2,7 @@ import StepWrapper from '@/components/StepWrapper'
 import MainLayout from '@/layouts/MainLayout'
 import { Button, Grid, TextField } from '@mui/material'
 import React, { useState } from 'react'
-
+import FileUpload from '../../components/FileUpload'
 const create = () => {
    const [activeStep, setActiveStep] = useState(0)
    const next = () => {
@@ -38,7 +38,7 @@ const create = () => {
                         </Grid>
                     }
                       {activeStep === 1 &&
-                      <h1>STEP 1</h1>
+                      <FileUpload file={''} setFile={() => ({})}/>
                     }
                       {activeStep === 2 &&
                       <h1>STEP 2</h1>
