@@ -8,8 +8,7 @@ interface FileUploadProps {
 }
 
 const FileUpload: React.FC<FileUploadProps> = ({file, setFile, accept, children}) => {
-    const ref = useRef<HTMLInputElement>()
-  
+    const ref = useRef<HTMLInputElement | null>(null);
     return (
     <div>
         <input type="file" 
