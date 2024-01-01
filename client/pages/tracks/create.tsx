@@ -5,10 +5,15 @@ import React, { useState } from 'react'
 import FileUpload from '../../components/FileUpload'
 const create = () => {
    const [activeStep, setActiveStep] = useState(0)
+   const [picture, setPicture] = useState(null)
+   const [audio, setAudio] = useState(null)
+
    const next = () => {
     if (activeStep !== 2) {
         setActiveStep(prev => prev + 1)
     }
+
+    
    }
    const back = () => {
      setActiveStep(prev => prev - 1)
@@ -38,10 +43,14 @@ const create = () => {
                         </Grid>
                     }
                       {activeStep === 1 &&
-                      <FileUpload file={''} setFile={() => ({})}/>
+                      <FileUpload  setFile={setPicture} accept="image/*">
+                                    <Button>Загрузите обложку</Button>
+                      </FileUpload>
                     }
                       {activeStep === 2 &&
-                      <h1>STEP 2</h1>
+                      <FileUpload  setFile={setAudio} accept="audio/*">
+                              <Button>Загрузите аудио</Button>
+                      </FileUpload>
                     }
             </StepWrapper>
             <Grid container justifyContent={'space-between'}>
