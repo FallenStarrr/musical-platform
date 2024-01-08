@@ -1,4 +1,5 @@
 import TrackList from '@/components/TrackList'
+import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import MainLayout from '@/layouts/MainLayout'
 import { ITrack } from '@/types/track'
@@ -9,7 +10,6 @@ import React from 'react'
 
 function Index() {
   const router = useRouter()
-  const {} = useTypedSelector(state => state.player)
   const tracks: ITrack[] = [
 
 
