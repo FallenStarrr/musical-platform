@@ -2,6 +2,8 @@ import TrackList from '@/components/TrackList'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import MainLayout from '@/layouts/MainLayout'
+import { NextThunkDispatch, wrapper } from '@/store'
+import { fetchTracks } from '@/store/action-creators/track'
 import { ITrack } from '@/types/track'
 import { Box, Button, Card, Grid } from '@mui/material'
 import { useRouter } from 'next/router'
@@ -10,13 +12,13 @@ import React from 'react'
 
 function Index() {
   const router = useRouter()
-  const tracks: ITrack[] = [
+  const {tracks, error} = useTypedSelector(state => state.track)
 
-
-    {_id: '2', name: 'Трек 2', artist: 'Исполнитель 2', text: 'Текст', listens: 5, audio: 'http://localhost:5000/audio/mixkit-birds-and-snapping-branch-2421.wav', picture: 'http://localhost:5000/picture/animal-after.webp', comments: []},
-    {_id: '3', name: 'Трек 3', artist: 'Исполнитель 3', text: 'Текст', listens: 5, audio: 'http://localhost:5000/audio/mixkit-birds-chirping-in-the-jungle-2433.wav', picture: 'http://localhost:5000/picture/rose-729509_640.jpg', comments: []},
-
-  ]
+  if (error) {
+    return <MainLayout>
+      <h1>{error}</h1>
+    </MainLayout>
+  }
   return (
     <MainLayout>
     <Grid container justifyContent={'center'}>
@@ -37,3 +39,8 @@ function Index() {
 }
 
 export default Index
+
+export const getServerSideProps = wrapper.getServerSideProps(async ({store}) => {
+  const dispatch = store.dispatch as NextThunkDispatch
+  await dispatch(await fetchTracks())
+})
