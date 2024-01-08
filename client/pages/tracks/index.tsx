@@ -1,12 +1,15 @@
 import TrackList from '@/components/TrackList'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import MainLayout from '@/layouts/MainLayout'
 import { ITrack } from '@/types/track'
 import { Box, Button, Card, Grid } from '@mui/material'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const index = () => {
+
+function Index() {
   const router = useRouter()
+  const {} = useTypedSelector(state => state.player)
   const tracks: ITrack[] = [
 
 
@@ -33,4 +36,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

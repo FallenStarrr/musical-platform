@@ -3,7 +3,7 @@ import MainLayout from '@/layouts/MainLayout'
 import { Button, Grid, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import FileUpload from '../../components/FileUpload'
-const create = () => {
+const Create = () => {
    const [activeStep, setActiveStep] = useState(0)
    const [picture, setPicture] = useState(null)
    const [audio, setAudio] = useState(null)
@@ -62,4 +62,4 @@ const create = () => {
   )
 }
 
-export default create
+export default Create

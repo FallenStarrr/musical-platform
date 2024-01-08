@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 
 interface TrackProgressProps {
         left: number
         right: number
-        onChange: (e) => void
+        onChange: (e: ChangeEvent<HTMLInputElement>) => void
  }
 
 
